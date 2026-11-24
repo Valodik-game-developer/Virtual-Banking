@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../Css/Login.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI-Bank</h1>
+        <div class="card">
+            <h2>Մուտք</h2>
+            <input id="email" type="email" placeholder="Էլ. փոստ" required>
+
+            <input id="password" type="password" placeholder="Գաղտնաբառ" required>
+
+            <button onclick="login()" type="submit">Մուտք</button>
+            <p>չկա հաշիվ: <a class="LOG-REG" href="index.html">Գրանցվել</a></p>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../Js/Login.js"></script>
+    
+</body>
+</html>

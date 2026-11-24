@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../Css/Register.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI-Bank</h1>
+        <div class="card">
+            <h2>Գրանցվել</h2>
+            <input id="username" type="username" placeholder="Անուն" required>
+            <input id="email" type="email" placeholder="email" required>
+            <input id="password" type="password" placeholder="Գաղտնաբառ" required>
+            
+            <button onclick="register()" type="submit">Գրանցվել</button>
+            <p>Կա՞ հաշիվ: <a class="LOG-REG" href="Login.html">Մուտք</a></p>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../Js/Register.js"></script>
+    
+</body>
+</html>
