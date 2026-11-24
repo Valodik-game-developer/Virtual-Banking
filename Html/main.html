@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI BANK</title>
+
+    <link rel="stylesheet" href="../Css/menu.css">
+</head>
+
+<body>
+
+<div class="bank">
+
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+
+    <header class="topbar">
+
+        <div>
+            <h1>🏦 AI BANK</h1>
+            <span>Virtual Banking</span>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            դուրս գալ
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- БАЛАНС -->
+
+        <section class="balance-card">
+
+            <div>
+
+                <p>Ամբողջ գումարը</p>
+
+                <h2>
+                    <span id="balance">0</span> 🪙
+                </h2>
+
+                <p class="username">
+                    👤 <span id="username">Ներբեռնում...</span>
+                </p>
+
+            </div>
+
+            <div class="bank-logo">
+                🏦
+            </div>
+
+        </section>
+
+
+        <!-- СОДЕРЖИМОЕ РАЗДЕЛОВ -->
+
+        <section id="content">
+
+
+            <!-- ГЛАВНАЯ -->
+
+            <div id="homePage" class="page active">
+
+                <h2>Բարի գալուստ 👋</h2>
+
+                <p class="subtitle">
+                    կառավրեք ձեր վիրտուալ բանկը հեշտությամբ:
+                </p>
+
+                <div class="actions">
+
+                    <button onclick="showPage('transferPage')">
+                        <span>💸</span>
+                        <b>փոխանցել</b>
+                        <small>փոխանցել գումար</small>
+                    </button>
+
+                    <button onclick="showPage('friendsPage')">
+                        <span>👥</span>
+                        <b>Ընկերներ</b>
+                        <small>Իմ Ընկերները</small>
+                    </button>
+
+                    <button onclick="showPage('cardsPage')">
+                        <span>💳</span>
+                        <b>Քարտեր</b>
+                        <small>Վիրտուալ քարտեր</small>
+                    </button>
+
+                    <button onclick="showPage('historyPage')">
+                        <span>📜</span>
+                        <b>Պատմություն</b>
+                        <small>Գործարքներ</small>
+                    </button>
+
+                    <button onclick="showPage('statsPage')">
+                        <span>📊</span>
+                        <b>Արդյունքներ</b>
+                        <small>Ֆինանսական արդյունքներ</small>
+                    </button>
+
+                    <button onclick="showPage('notificationsPage')">
+                        <span>🔔</span>
+                        <b>Ծանուցումներ</b>
+                        <small>Նամակներ</small>
+                    </button>
+
+                    <button onclick="showPage('securityPage')">
+                        <span>🔐</span>
+                        <b>Անվավերություն</b>
+                        <small>Ակաունտի Անվավերություն</small>
+                    </button>
+
+                    <button onclick="showPage('settingsPage')">
+                        <span>⚙️</span>
+                        <b>Կարգավորումներ</b>
+                        <small>Բանկի կարգավորումներ</small>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ПЕРЕВОД -->
+
+            <div id="transferPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>💸 Փոխանցել գումար</h2>
+
+                <p class="subtitle">
+                    Ուղարկեք վիրտուալ գումար այլ օգտատիրոջը
+                </p>
+
+                <div class="form-card">
+
+                    <input
+                        type="text"
+                        id="receiver"
+                        placeholder="Օգտատիրոջ անուն"
+                    >
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Գումար"
+                        min="1"
+                    >
+
+                    <button
+                        class="send-btn"
+                        onclick="sendMoney()"
+                    >
+                        Ուղարկել գումար
+                    </button>
+
+                    <p id="transferMessage"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ДРУЗЬЯ -->
+
+            <div id="friendsPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>👥  Ընկերներ</h2>
+
+                <div class="empty-card">
+
+                    <div class="big-icon">👥</div>
+
+                    <h3>Ձեր ընկերներ</h3>
+
+                    <p>
+                        Այստեղ կլինի ձեր ընկերների ցուցակը.
+                    </p>
+
+                    <button onclick="demoMessage()">
+                        ＋ Ավելացնել ընկեր
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- КАРТЫ -->
+
+            <div id="cardsPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>💳 Իմ քարտերը</h2>
+
+                <div class="virtual-card">
+
+                    <div class="card-title">
+                        AI BANK
+                    </div>
+
+                    <div class="card-number">
+                        •••• •••• •••• 4821
+                    </div>
+
+                    <div class="card-bottom">
+
+                        <span id="cardUsername">
+                            USER
+                        </span>
+
+                        <span>
+                            Դրամ
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button onclick="demoMessage()">
+                    ＋ Ավելացնել քարտ
+                </button>
+
+            </div>
+
+
+            <!-- ИСТОРИЯ -->
+
+            <div id="historyPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>📜 Գործարքների պատմություն</h2>
+
+                <div class="empty-card">
+
+                    <div class="big-icon">📜</div>
+
+                    <h3>Գործարքների պատմություն</h3>
+
+                    <p>
+                        Ձեր փոխանցումների պատմությունը կլինի այստեղ.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- СТАТИСТИКА -->
+
+            <div id="statsPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>📊 Վարկային տվյալներ</h2>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span>💰</span>
+                        <b id="statBalance">0</b>
+                        <small>Բալանս</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>📈</span>
+                        <b>100%</b>
+                        <small>Ակտիվность</small>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>🪙</span>
+                        <b>Virtual</b>
+                        <small>Տիպ</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- УВЕДОМЛЕНИЯ -->
+
+            <div id="notificationsPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>🔔 Ուղարկել ծանուցում</h2>
+
+                <div class="notification">
+                    🎉 Բարի գալուստ AI-BANK!
+                </div>
+
+                <div class="notification">
+                    + Ձեր վիրտուալ հաշիվն ակտիվ է.
+                </div>
+
+            </div>
+
+
+            <!-- БЕЗОПАСНОСТЬ -->
+
+            <div id="securityPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>🔐 Անվավերություն</h2>
+
+                <div class="security-item">
+                    🔒 Մուտքագրում
+                    <span>Ակտիվ</span>
+                </div>
+
+                <div class="security-item">
+                    🛡️ Ակաունտի պաշտպանություն
+                    <span>Միացված</span>
+                </div>
+
+                <div class="security-item">
+                    🔑 Գաղտնաբառ
+                    <span>••••••••</span>
+                </div>
+
+            </div>
+
+
+            <!-- НАСТРОЙКИ -->
+
+            <div id="settingsPage" class="page">
+
+                <button class="back-btn" onclick="showPage('homePage')">
+                    ← Հետ
+                </button>
+
+                <h2>⚙️ Կարգավորումներ</h2>
+
+                <div class="settings-item">
+                    🌙 Գիշերային ռեժիմ
+                    <button onclick="toggleDarkMode()">
+                        Փոխել
+                    </button>
+                </div>
+
+                <div class="settings-item">
+                    🔔 Ծանուցումներ
+                    <button onclick="demoMessage()">
+                        Կարգավորումներ
+                    </button>
+                </div>
+
+                <div class="settings-item">
+                    🌐 Լեզուն
+                    <button onclick="demoMessage()">
+                        Հայերեն
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- НИЖНЕЕ МЕНЮ -->
+
+        <nav class="bottom-nav">
+
+            <button onclick="showPage('homePage')">
+                🏠
+                <span>Գլխավոր</span>
+            </button>
+
+            <button onclick="showPage('transferPage')">
+                💸
+                <span>Փոխանցում</span>
+            </button>
+
+            <button onclick="showPage('friendsPage')">
+                👥
+                <span> Ընկերներ</span>
+            </button>
+
+            <button onclick="showPage('historyPage')">
+                📜
+                <span>Պատմություն</span>
+            </button>
+
+            <button onclick="showPage('settingsPage')">
+                ⚙️
+                <span>Կարգավորումներ</span>
+            </button>
+
+        </nav>
+
+    </main>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../JS/Menu.js"></script>
+
+</body>
+</html>
